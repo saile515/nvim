@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/coq_nvim",
     url = "https://github.com/ms-jpq/coq_nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/saile515/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -114,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/saile515/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -129,11 +139,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/home/saile515/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["vscode.nvim"] = {
     loaded = true,

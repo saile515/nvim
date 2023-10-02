@@ -34,7 +34,7 @@ return require('packer').startup(function(use)
     branch = "3p"
   }
 
-  use 'Mofiqul/vscode.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use {
     'nvim-lualine/lualine.nvim',

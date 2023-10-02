@@ -8,7 +8,17 @@ vim.api.nvim_command('set shiftwidth=4')
 vim.api.nvim_command('set expandtab')
 vim.keymap.set("n", "<C-s>", ":w<Enter>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<Enter>li")
+<<<<<<< HEAD
 vim.cmd[[colorscheme vscode]]
+=======
+vim.keymap.set("n", "<F5>", ":!cmake --build bin --parallel")
+
+vim.cmd("autocmd VimEnter * cd ~/Documents/projects")
+vim.cmd("autocmd VimEnter * CHADopen --nofocus")
+vim.cmd("autocmd VimEnter * COQnow --shut-up")
+
+vim.cmd.colorscheme "catppuccin-macchiato"
+>>>>>>> ed4c0560763612921fc1cc685d66c280c1add309
 
 require('lualine').setup()
 require('gitsigns').setup()
