@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  catppuccin = {
+    loaded = true,
+    path = "/home/saile515/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   chadtree = {
     loaded = true,
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/chadtree",
@@ -139,11 +144,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/saile515/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/saile515/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

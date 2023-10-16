@@ -9,7 +9,7 @@ vim.api.nvim_command('set expandtab')
 vim.keymap.set("n", "<C-s>", ":w<Enter>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<Enter>")
 
-vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "catppuccin-mocha"
 
 require('lualine').setup()
 require('gitsigns').setup()
