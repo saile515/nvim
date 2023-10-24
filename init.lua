@@ -6,8 +6,14 @@ vim.api.nvim_command('set number')
 vim.api.nvim_command('set tabstop=4')
 vim.api.nvim_command('set shiftwidth=4')
 vim.api.nvim_command('set expandtab')
+
+-- Keybinds
 vim.keymap.set("n", "<C-s>", ":w<Enter>")
 vim.keymap.set("i", "<C-s>", "<Esc>:w<Enter>")
+
+vim.keymap.set("n", "<F17>", ":!cmake -S . -B build && cmake --build build<Enter>")
+vim.keymap.set("n", "<F5>", ":!cmake --build build<Enter>")
+-- !Keybinds
 
 vim.cmd.colorscheme "catppuccin-mocha"
 
@@ -32,7 +38,7 @@ require "lspconfig".clangd.setup {
 
 require("null-ls").setup()
 
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.format()")
 
 vim.cmd("autocmd VimEnter * cd ~/Documents/projects")
 vim.cmd("autocmd VimEnter * CHADopen --nofocus")
