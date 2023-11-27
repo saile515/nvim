@@ -44,7 +44,8 @@ require("formatter").setup {
         typescriptreact = prettier,
         css = prettier,
         json = prettier,
-        lua = {require("formatter.filetypes.lua").luaformat}
+        lua = {require("formatter.filetypes.lua").luaformat},
+        cpp = require("formatter.defaults.clangformat")
     }
 }
 
