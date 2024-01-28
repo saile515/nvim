@@ -29,4 +29,11 @@ return require('packer').startup(function(use)
     use {"lewis6991/gitsigns.nvim", tag = 'release'}
 
     use "folke/trouble.nvim"
+
+    use {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
+        -- or                            , branch = '0.1.x',
+        requires = {{'nvim-lua/plenary.nvim'}}
+    }
 end)

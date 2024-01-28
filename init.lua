@@ -20,6 +20,11 @@ vim.keymap.set("n", "<F5>", ":!cmake --build build<Enter>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<C-e>", function() require("trouble").toggle() end)
+
+local telescope = require('telescope.builtin')
+vim.keymap.set("n", "<C-f>", telescope.find_files, {})
+
+vim.keymap.set("n", "<C-t>", ":CHADopen<Enter>");
 -- !Keybinds
 
 require("lualine").setup()
@@ -57,6 +62,4 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
 vim.cmd.colorscheme "catppuccin-mocha"
 
 vim.cmd("autocmd BufWritePost * FormatWrite")
-vim.cmd("autocmd VimEnter * cd ~/Documents/projects")
-vim.cmd("autocmd VimEnter * CHADopen --nofocus")
 vim.cmd("autocmd VimEnter * COQnow --shut-up")
