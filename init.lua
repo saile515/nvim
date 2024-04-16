@@ -21,7 +21,7 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<C-e>", function() require("trouble").toggle() end)
 
-local telescope = require('telescope.builtin')
+local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<C-f>", telescope.find_files, {})
 
 vim.keymap.set("n", "<C-t>", ":CHADopen<Enter>");
@@ -30,17 +30,21 @@ vim.keymap.set("n", "<C-t>", ":CHADopen<Enter>");
 require("lualine").setup()
 require("gitsigns").setup()
 
+local coq = require("coq")
+local lsp = require("lspconfig")
+local mason_lsp = require("mason-lspconfig")
+
 require("mason").setup()
-require("mason-lspconfig").setup()
-require("mason-lspconfig").setup_handlers {
-    function(server_name) require("lspconfig")[server_name].setup {} end
+mason_lsp.setup()
+mason_lsp.setup_handlers {
+    function(server_name)
+        lsp[server_name].setup(coq.lsp_ensure_capabilities())
+    end
 }
 
-require"lspconfig".clangd.setup {
-    settings = {clangd = {arguments = {"-std=c++20"}}}
-}
+lsp.clangd.setup {settings = {clangd = {arguments = {"-std=c++20"}}}}
 
-local prettier = require("formatter.defaults.prettier")
+local prettier = require("formatter.defaults.prettierd")
 
 require("formatter").setup {
     filetype = {
@@ -50,6 +54,9 @@ require("formatter").setup {
         typescriptreact = prettier,
         css = prettier,
         json = prettier,
+        svelte = prettier,
+        html = prettier,
+        markdown = prettier,
         lua = {require("formatter.filetypes.lua").luaformat},
         cpp = require("formatter.defaults.clangformat")
     }

@@ -9,12 +9,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
-    {"williamboman/mason.nvim"},
-    "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig",
-    "mfussenegger/nvim-dap", {"mhartington/formatter.nvim"},
-    "mfussenegger/nvim-lint",
-    {"ms-jpq/chadtree", branch = "chad"},
-    {"ms-jpq/coq_nvim", branch = "coq"},
+    {"williamboman/mason.nvim"}, "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig", "mfussenegger/nvim-dap",
+    {"mhartington/formatter.nvim"}, "mfussenegger/nvim-lint",
+    {"ms-jpq/chadtree", branch = "chad"}, {"ms-jpq/coq_nvim", branch = "coq"},
     {"ms-jpq/coq.artifacts", branch = "artifacts"},
     {"ms-jpq/coq.thirdparty", branch = "3p"},
     {"catppuccin/nvim", name = "catppuccin"},
@@ -25,5 +23,5 @@ return require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         dependencies = {"nvim-lua/plenary.nvim"}
-    }
+    }, "evanleck/vim-svelte"
 })
