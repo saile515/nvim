@@ -3,8 +3,8 @@ require('plugins')
 vim.encoding = "UTF-8"
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.api.nvim_command('set number')
-vim.api.nvim_command('set tabstop=4')
-vim.api.nvim_command('set shiftwidth=4')
+vim.api.nvim_command('set tabstop=2')
+vim.api.nvim_command('set shiftwidth=2')
 vim.api.nvim_command('set expandtab')
 vim.api.nvim_command('set relativenumber')
 vim.opt.clipboard = "unnamedplus"
