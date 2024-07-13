@@ -3,11 +3,13 @@ require('plugins')
 vim.encoding = "UTF-8"
 vim.g.python3_host_prog = "/usr/bin/python3"
 vim.api.nvim_command('set number')
-vim.api.nvim_command('set tabstop=2')
-vim.api.nvim_command('set shiftwidth=2')
+vim.api.nvim_command('set tabstop=4')
+vim.api.nvim_command('set shiftwidth=4')
 vim.api.nvim_command('set expandtab')
 vim.api.nvim_command('set relativenumber')
 vim.opt.clipboard = "unnamedplus"
+
+local should_format = true;
 
 -- Keybinds
 vim.keymap.set("n", "<C-s>", ":w<Enter>")
@@ -25,6 +27,11 @@ local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<C-f>", telescope.find_files, {})
 
 vim.keymap.set("n", "<C-t>", ":CHADopen<Enter>");
+
+vim.keymap.set("n", "<C-l>", function()
+    should_format = not should_format
+    print("Should Format:", should_format)
+end);
 -- !Keybinds
 
 require("lualine").setup()
@@ -44,9 +51,13 @@ mason_lsp.setup_handlers {
 
 lsp.clangd.setup {settings = {clangd = {arguments = {"-std=c++20"}}}}
 
+local util = require("formatter.util")
 local prettier = require("formatter.defaults.prettierd")
+local clang_format = require("formatter.defaults.clangformat")
 
 require("formatter").setup {
+    logging = true,
+    log_level = vim.log.levels.ALL,
     filetype = {
         javascript = prettier,
         javascriptreact = prettier,
@@ -56,17 +67,24 @@ require("formatter").setup {
         json = prettier,
         svelte = prettier,
         html = prettier,
+        svx = prettier,
         markdown = prettier,
         lua = {require("formatter.filetypes.lua").luaformat},
-        cpp = require("formatter.defaults.clangformat")
+        cpp = clang_format,
+        c = clang_format,
+        cmake = require("formatter.filetypes.cmake").cmakeformat
     }
 }
 
 vim.api.nvim_create_autocmd({"BufWritePost"}, {
-    callback = function() require("lint").try_lint() end
+    callback = function()
+        require("lint").try_lint()
+        if (should_format == true) then
+            vim.api.nvim_command("FormatWrite")
+        end
+    end
 })
 
 vim.cmd.colorscheme "catppuccin-mocha"
 
-vim.cmd("autocmd BufWritePost * FormatWrite")
 vim.cmd("autocmd VimEnter * COQnow --shut-up")

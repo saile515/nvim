@@ -23,5 +23,5 @@ return require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         dependencies = {"nvim-lua/plenary.nvim"}
-    }, "evanleck/vim-svelte"
+    }, "evanleck/vim-svelte", "tikhomirov/vim-glsl"
 })
