@@ -65,6 +65,7 @@ require("formatter").setup {
         typescriptreact = prettier,
         css = prettier,
         json = prettier,
+        jsonc = prettier,
         svelte = prettier,
         html = prettier,
         svx = prettier,
