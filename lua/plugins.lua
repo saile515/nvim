@@ -14,8 +14,7 @@ return require("lazy").setup({
     {"mhartington/formatter.nvim"}, "mfussenegger/nvim-lint",
     {"ms-jpq/chadtree", branch = "chad"}, {"ms-jpq/coq_nvim", branch = "coq"},
     {"ms-jpq/coq.artifacts", branch = "artifacts"},
-    {"ms-jpq/coq.thirdparty", branch = "3p"},
-    {"catppuccin/nvim", name = "catppuccin"},
+    {"ms-jpq/coq.thirdparty", branch = "3p"}, "shaunsingh/nord.nvim",
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {"nvim-tree/nvim-web-devicons"}

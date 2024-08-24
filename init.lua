@@ -86,6 +86,6 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     end
 })
 
-vim.cmd.colorscheme "catppuccin-mocha"
+vim.cmd.colorscheme "nord"
 
 vim.cmd("autocmd VimEnter * COQnow --shut-up")
