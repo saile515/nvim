@@ -1,3 +1,5 @@
 require("config.lazy")
+require("lsp")
 require("preferences")
 require("keys")
+require("windows")

@@ -14,26 +14,23 @@ return {
 			})
 		end,
 	},
-	{
-		"neovim/nvim-lspconfig",
-	},
+	{ "neovim/nvim-lspconfig" },
 	{
 		"mason-org/mason.nvim",
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed or {}, {
+		opts = {
+			ensure_installed = {
 				"cspell",
 				"prettierd",
-				"clangd",
 				"stylua",
 				"clang-format",
-				"lua-language-server",
-				"typescript-language-server",
-			})
-		end,
+			},
+		},
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {},
+		opts = {
+			ensure_installed = { "clangd", "ts_ls", "lua_ls" },
+		},
 	},
 	{
 		"stevearc/conform.nvim",
