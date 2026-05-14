@@ -1,10 +1,17 @@
 return {
 	{
-		"nordtheme/vim",
+		"dasupradyumna/midnight.nvim",
 		lazy = false,
-		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme nord]])
+			vim.cmd("colorscheme midnight")
+
+			vim.api.nvim_set_hl(0, "Normal", {
+				bg = "#000000",
+			})
+
+			vim.api.nvim_set_hl(0, "NormalFloat", {
+				bg = "#000000",
+			})
 		end,
 	},
 	{
@@ -13,18 +20,15 @@ return {
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
-			vim.list_extend(
-				opts.ensure_installed or {},
-				{
-					"cspell",
-					"prettierd",
-					"clangd",
-					"stylua",
-					"clang-format",
-					"lua-language-server",
-					"typescript-language-server",
-				}
-			)
+			vim.list_extend(opts.ensure_installed or {}, {
+				"cspell",
+				"prettierd",
+				"clangd",
+				"stylua",
+				"clang-format",
+				"lua-language-server",
+				"typescript-language-server",
+			})
 		end,
 	},
 	{
@@ -36,6 +40,10 @@ return {
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
+				cpp = { "clang-format" },
+				c = { "clang-format" },
+				typescript = { "prettierd" },
+				javascript = { "prettierd" },
 			},
 			format_on_save = {},
 		},
